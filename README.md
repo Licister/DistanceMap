@@ -2,7 +2,7 @@
 
 ##README
 
-This is the source code for the Distance Map app found [here](http://licister.shinyapps.io/distancemap), created for the ["Developing Data Products"](https://www.coursera.org/course/devdataprod) course project.
+This is the source code for the Distance Map app found [here](http://licister.shinyapps.io/distancemap), created for the ["Developing Data Products"](https://www.coursera.org/course/devdataprod) course project. It also contains the Slidify presentation of the same app.
 
 
 Distance Map is an application that takes two American cities as inputs (from a selection of 10), and returns the straight line distance between them in miles and kilometers. It also adds two markers on a map to let the user know where the cities are located.

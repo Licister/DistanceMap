@@ -1,0 +1,95 @@
+---
+title       : Distance Map
+subtitle    : André Martinez
+author      : June 2015
+job         : Developing Data Products
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : []            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+runtime     : shiny
+knit        : slidify::knit2slides
+ext_widgets : {rCharts: libraries/leaflet}
+output      : html_document
+---
+
+## Introduction
+
+This application returns the straight line distance between two US cities. It then proceeds to add a marker on a map of the United States so the user can see where both cities are located. The user simply has to choose two cities and press "Submit".
+
+<img height='450' src='assets/img/sample-image1.png' />
+
+
+--- 
+## Layout
+
+The layout is simple. The documentation is at the top left, indicating that the user simply needs to choose two cities from the menu to the right and press the "Submit" button.  
+Further to the right are useful links, references and materials used.  
+
+Below this row is a line where the distance between the two cities is shown, in both miles and kilometers.  
+
+Finally, there is a map of the United States where the markers for each city are placed.
+
+
+---
+## Example
+
+In this example, we'll get the distance between Chicago and San Francisco.
+Note: since there seems to be an issue with shiny apps in Slidify, the cities can't be chosen in this example.
+
+```{r code, echo = FALSE}
+library(shiny)
+library(base64enc)
+library(rCharts)
+distance <- read.csv("assets/distance.csv", row.names = 1, 
+                      header = TRUE, fileEncoding="UTF-8",
+                      check.names = FALSE)
+coordinates <- as.matrix(read.csv("assets/coordinates.csv", 
+                                   row.names = "City", header = TRUE, 
+                                   fileEncoding="UTF-8", check.names = FALSE))
+city1 <- "Chicago"
+city2 <- "San Francisco"
+paste("Distance between ", city1, " and ", city2, ": ", 
+                              distance[city1, city2], 
+                              " miles (", round(distance[city1, city2] * 1.609344,
+                                                digits = 0), 
+                              " kilometers).", sep = "")
+```
+
+```{r code2, results = "asis", echo = FALSE, comment = NA, message = F}
+coordinates <- as.matrix(read.csv("assets/coordinates.csv", 
+                                   row.names = "City", header = TRUE, 
+                                   fileEncoding="UTF-8", check.names = FALSE))
+options(
+  RCHART_HEIGHT = 400, 
+  RCHART_WIDTH = 750, 
+  rcharts.cdn = TRUE, 
+  rcharts.mode = 'iframesrc')
+
+usa <- Leaflet$new()
+usa$setView(c(37, -95), zoom = 4)
+usa$marker(as.numeric(as.vector(coordinates[city1,])), 
+           bindPopup = city1)
+usa$marker(as.numeric(as.vector(coordinates[city2,])), 
+           bindPopup = city2)
+usa
+``` 
+
+
+---
+## Future Improvements
+
+
+These are some of the possible improvements that can be added to an application like this:  
+<br />  
+
+* Create a line that connects both cities/markers.  
+    * Problem: requires heavy use of JSON.  
+    * Possible solution: use other mapping libraries.
+    
+<br />
+  
+* Add more cities.  
+    * Problem: This app uses two data sets, one with the [distances between cities](http://stat.ethz.ch/R-manual/R-devel/library/datasets/html/eurodist.html) and another with the coordinates for each city.  
+    * Possible solution: create one data set with the coordinates for each city and calculate distances as they are needed.  

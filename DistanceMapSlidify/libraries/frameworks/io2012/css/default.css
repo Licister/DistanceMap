@@ -256,6 +256,7 @@ slides > slide {
   -ms-transition: all 0.6s ease-in-out;
   -o-transition: all 0.6s ease-in-out;
   transition: all 0.6s ease-in-out;
+  background-color: #334B5C;
 }
 /* line 119, ../scss/default.scss */
 slides > slide.far-past {

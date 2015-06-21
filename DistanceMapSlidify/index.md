@@ -12,17 +12,20 @@ runtime     : shiny
 knit        : slidify::knit2slides
 ext_widgets : {rCharts: libraries/leaflet}
 output      : html_document
----
+--- 
 
 ## Introduction
+
 
 This application returns the straight line distance between two US cities. It then proceeds to add a marker on a map of the United States so the user can see where both cities are located. The user simply has to choose two cities and press "Submit".
 
 <img height='450' src='assets/img/sample-image1.png' />
 
 
---- 
+---
 ## Layout
+
+<br />  
 
 The layout is simple. The documentation is at the top left, indicating that the user simply needs to choose two cities from the menu to the right and press the "Submit" button.  
 Further to the right are useful links, references and materials used.  
@@ -36,7 +39,7 @@ Finally, there is a map of the United States where the markers for each city are
 ## Example
 
 In this example, we'll get the distance between Chicago and San Francisco.
-Note: since there seems to be an issue with shiny apps in Slidify, the cities can't be chosen in this example.
+Since there seems to be an issue with shiny apps in Slidify, the cities can't be chosen in this example.
 
 
 ```

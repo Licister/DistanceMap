@@ -1,6 +1,6 @@
 ---
 title       : Distance Map
-subtitle    : André Martinez
+subtitle    : Andre Martinez
 author      : June 2015
 job         : Developing Data Products
 framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
@@ -12,6 +12,7 @@ runtime     : shiny
 knit        : slidify::knit2slides
 ext_widgets : {rCharts: libraries/leaflet}
 output      : html_document
+encoding    : utf8
 ---
 
 ## Introduction
@@ -66,10 +67,10 @@ Note: since there seems to be an issue with shiny apps in Slidify, the cities ca
   &lt;/head&gt;
   &lt;body &gt;
     
-    &lt;div id = &#039;chart14107cee68ea&#039; class = &#039;rChart leaflet&#039;&gt;&lt;/div&gt;    
+    &lt;div id = &#039;chartaac37abb3f&#039; class = &#039;rChart leaflet&#039;&gt;&lt;/div&gt;    
     &lt;script&gt;
   var spec = {
- &quot;dom&quot;: &quot;chart14107cee68ea&quot;,
+ &quot;dom&quot;: &quot;chartaac37abb3f&quot;,
 &quot;width&quot;:            750,
 &quot;height&quot;:            400,
 &quot;urlTemplate&quot;: &quot;http://{s}.tile.osm.org/{z}/{x}/{y}.png&quot;,
@@ -78,7 +79,7 @@ Note: since there seems to be an issue with shiny apps in Slidify, the cities ca
 },
 &quot;center&quot;: [             37,            -95 ],
 &quot;zoom&quot;:              4,
-&quot;id&quot;: &quot;chart14107cee68ea&quot; 
+&quot;id&quot;: &quot;chartaac37abb3f&quot; 
 }
 
   var map = L.map(spec.dom, spec.mapOpts)
@@ -127,7 +128,7 @@ L
     
     &lt;script&gt;&lt;/script&gt;    
   &lt;/body&gt;
-&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  leaflet  ' id='iframe-chart14107cee68ea'> </iframe>
+&lt;/html&gt; ' scrolling='no' frameBorder='0' seamless class='rChart  leaflet  ' id='iframe-chartaac37abb3f'> </iframe>
  <style>iframe.rChart{ width: 100%; height: 400px;}</style>
 
 

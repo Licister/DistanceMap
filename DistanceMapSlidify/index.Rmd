@@ -12,7 +12,6 @@ runtime     : shiny
 knit        : slidify::knit2slides
 ext_widgets : {rCharts: libraries/leaflet}
 output      : html_document
-encoding    : utf8
 ---
 
 ## Introduction
